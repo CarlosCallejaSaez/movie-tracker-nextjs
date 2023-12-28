@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const OMDB_API_KEY = "b0e929df";
-const OMDB_API_URL = 'http://www.omdbapi.com/';
+const OMDB_API_URL = 'https://www.omdbapi.com/';
 
 export const searchMovies = async (query) => {
   try {
