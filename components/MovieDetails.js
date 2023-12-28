@@ -1,22 +1,33 @@
 import React from 'react';
-import styles from './MovieDetails.module.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const MovieDetails = ({ movie, onMarkAsViewed, onRate, isViewed, rating }) => {
   return (
-    <div className={styles.cardContainer}>
-      <div className={styles.imageContainer}>
-        <img src={movie.Poster} alt={movie.Title} className={styles.posterImage} />
-      </div>
-      <div className={styles.detailsContainer}>
-        <h2 className={styles.movieTitle}>{movie.Title}</h2>
-        <p className={styles.movieInfo} >Year: {movie.Year}</p>
-        <p className={styles.movieInfo}>Type: {movie.Type}</p>
+    <div>
 
-        <button className='button' onClick={() => onMarkAsViewed(movie.imdbID)} disabled={isViewed}>
+    
+    <div className="card bg-light mb-3" style={{ maxWidth: '18rem' }}>
+      <img src={movie.Poster} className="card-img-top img-fluid" alt={movie.Title} style={{ maxWidth: '100%' }} />
+
+      <div className="card-body">
+        <h5 className="card-title">{movie.Title}</h5>
+        <p className="card-text">Year: {movie.Year}</p>
+        <p className="card-text">Type: {movie.Type}</p>
+
+        <button
+          className={`btn btn-primary ${isViewed ? 'disabled' : ''}`}
+          onClick={() => onMarkAsViewed(movie.imdbID)}
+          disabled={isViewed}
+        >
           {isViewed ? 'Viewed' : 'Mark as Viewed'}
         </button>
 
-        <select className='select'    onChange={(e) => onRate(movie.imdbID, e.target.value)} value={rating}>
+        <select
+          className="form-select mt-3"
+          onChange={(e) => onRate(movie.imdbID, e.target.value)}
+          value={rating}
+        >
           <option value="">Rate</option>
           <option value="1">⭐</option>
           <option value="2">⭐⭐</option>
@@ -25,6 +36,9 @@ const MovieDetails = ({ movie, onMarkAsViewed, onRate, isViewed, rating }) => {
           <option value="5">⭐⭐⭐⭐⭐</option>
         </select>
       </div>
+    </div>
+   
+
     </div>
   );
 };

@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export default function Home() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('shrek');
   const [viewedMovies, setViewedMovies] = useState([]);
   const [ratedMovies, setRatedMovies] = useState({});
   const { data: movies, isLoading, refetch } = useQuery(['searchMovies', query], () => searchMovies(query));
@@ -32,7 +32,7 @@ export default function Home() {
       <Header />
 
       <form onSubmit={handleSearch}>
-        <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
+        <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} className='input'/>
         <button type="submit">Search</button>
       </form>
 
@@ -43,6 +43,7 @@ export default function Home() {
 
 
       {movies && (
+        <div>
         <ul className='movies-container'>
           {movies.map((movie) => (
             <li key={movie.imdbID}>
@@ -56,6 +57,11 @@ export default function Home() {
             </li>
           ))}
         </ul>
+        <br />
+        <br />
+        <br />
+        </div>
+
       )}
 
       <Footer />
