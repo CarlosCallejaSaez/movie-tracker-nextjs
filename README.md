@@ -1,6 +1,6 @@
 # Movie Tracker App
 
-[🚀Deploy Netlify](effulgent-lebkuchen-069118)
+[🚀Deploy Netlify](https://effulgent-lebkuchen-069118.netlify.app/)
 This is a web application project developed with Next.js to keep track of the movies you have watched and assign ratings.
 
 ## Features
