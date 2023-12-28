@@ -38,8 +38,6 @@ export default function Home() {
 
       {isLoading && <p>Loading...</p>}
 
-      {!isLoading && movies && movies.length === 0 && <h2>No results found</h2>}
-
 
 
       {movies && (
